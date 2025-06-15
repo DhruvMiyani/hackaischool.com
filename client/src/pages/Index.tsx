@@ -172,7 +172,7 @@ const Index = () => {
                   <TableHead className="min-w-[220px] text-lg font-semibold text-zinc-700">Event Name</TableHead>
                   <TableHead className="min-w-[180px] text-lg font-semibold text-zinc-700">Host(s)</TableHead>
                   <TableHead className="w-[120px] text-lg font-semibold text-zinc-700">Type</TableHead>
-                  <TableHead className="min-w-[200px] text-lg font-semibold text-zinc-700">Notes</TableHead>
+                  <TableHead className="min-w-[200px] text-lg font-semibold text-zinc-700">Perks</TableHead>
                   <TableHead className="w-[130px] text-lg font-semibold text-zinc-700">Apply/RSVP</TableHead>
                 </TableRow>
               </TableHeader>
