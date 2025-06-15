@@ -7,7 +7,7 @@ const events = [
   {
     date: "Jun 16",
     name: "Cluely Afterparty",
-    hosts: "Chungin Lee",
+    hosts: "Cluely - Roy",
     type: "Invite‑only",
     notes: "DM for link",
   },
@@ -87,7 +87,7 @@ const highlightKeywords = (notes: string) => {
   return out;
 };
 
-function getActionButton(notes: string) {
+function getActionButton(notes: string, hosts: string) {
   const RSVPMatch = notes.match(/\b(RSVP)\b/i);
   const DMMatch = notes.match(/\b(DM)\b/i);
   if (RSVPMatch) {
@@ -98,6 +98,20 @@ function getActionButton(notes: string) {
     );
   }
   if (DMMatch) {
+    const isCluely = hosts.includes("Cluely - Roy");
+    if (isCluely) {
+      return (
+        <a 
+          href="https://www.linkedin.com/in/roy-lee-goat/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <Button className="bg-blue-200 hover:bg-blue-300 text-blue-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+            DM Host
+          </Button>
+        </a>
+      );
+    }
     return (
       <Button className="bg-blue-200 hover:bg-blue-300 text-blue-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
         DM Host
@@ -118,7 +132,7 @@ const Index = () => {
         {/* HERO HEADER SECTION */}
         <section className="flex flex-col items-center gap-2 mb-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-900 tracking-tight text-center">
-            now can y hackaischool.com
+            hackaischool.com
           </h1>
           <span className="mt-2 text-lg md:text-xl font-medium text-cyan-900 text-center tracking-wide">
             AI Hackathon - events resource page
@@ -166,7 +180,7 @@ const Index = () => {
                       />
                     </TableCell>
                     <TableCell className="text-center">
-                      {getActionButton(evt.notes)}
+                      {getActionButton(evt.notes, evt.hosts)}
                     </TableCell>
                   </TableRow>
                 ))}
