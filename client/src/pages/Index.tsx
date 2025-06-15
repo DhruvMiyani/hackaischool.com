@@ -28,6 +28,14 @@ const events = [
     link: "https://partiful.com/e/P3J3LJmJeAa96wmffgVA",
   },
   {
+    date: "Jun 17",
+    name: "Headstarter Event",
+    hosts: "Headstarter",
+    type: "RSVP",
+    notes: "Tech networking",
+    link: "https://lnkd.in/ejTZq2Hm",
+  },
+  {
     date: "Jun 16–17",
     name: "Josh Locke Afterparty",
     hosts: "Josh Locke",
@@ -47,14 +55,6 @@ const events = [
     hosts: "Comulate, Perplexity, Wispr, Warp, Conversion",
     type: "Multi‑startup",
     notes: "Food, swag, interns",
-  },
-  {
-    date: "Jun 17",
-    name: "Headstarter Event",
-    hosts: "Headstarter",
-    type: "RSVP",
-    notes: "Tech networking",
-    link: "https://lnkd.in/ejTZq2Hm",
   },
   {
     date: "Jun 18",
@@ -230,7 +230,7 @@ const Index = () => {
           </p>
         </header>
         <div className="bg-white shadow-xl rounded-xl overflow-hidden border border-zinc-200">
-          <ScrollArea className="w-full max-h-[520px]">
+          <ScrollArea className="w-full h-[520px]">
             <Table>
               <TableHeader className="bg-gradient-to-r from-blue-100/50 via-indigo-50 to-cyan-50">
                 <TableRow>
