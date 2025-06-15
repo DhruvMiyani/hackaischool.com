@@ -17,6 +17,7 @@ const events = [
     hosts: "Anthropic",
     type: "Exclusive",
     notes: "Claude panel, boba",
+    link: "https://lu.ma/anthropic",
   },
   {
     date: "Jun 16–17",
@@ -91,8 +92,13 @@ const highlightKeywords = (notes: string) => {
 function getActionButton(notes: string, hosts: string, link?: string) {
   const RSVPMatch = notes.match(/\b(RSVP)\b/i);
   const DMMatch = notes.match(/\b(DM)\b/i);
+  
+  // Handle specific events with links
+  const isCorgi = hosts.includes("Corgi Insurance");
+  const isAnthropic = hosts.includes("Anthropic");
+  const isCluely = hosts.includes("Cluely - Roy");
+  
   if (RSVPMatch) {
-    const isCorgi = hosts.includes("Corgi Insurance");
     if (isCorgi && link) {
       return (
         <a 
@@ -112,8 +118,8 @@ function getActionButton(notes: string, hosts: string, link?: string) {
       </Button>
     );
   }
+  
   if (DMMatch) {
-    const isCluely = hosts.includes("Cluely - Roy");
     if (isCluely) {
       return (
         <a 
@@ -133,6 +139,22 @@ function getActionButton(notes: string, hosts: string, link?: string) {
       </Button>
     );
   }
+  
+  // Handle Anthropic special case
+  if (isAnthropic && link) {
+    return (
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <Button className="bg-purple-200 hover:bg-purple-300 text-purple-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+          Apply
+        </Button>
+      </a>
+    );
+  }
+  
   return (
     <Button className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded" size="sm" variant="outline">
       Details
