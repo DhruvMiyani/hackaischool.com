@@ -117,6 +117,7 @@ function getActionButton(notes: string, hosts: string, link?: string) {
   const isAnthropic = hosts.includes("Anthropic");
   const isCluely = hosts.includes("Cluely - Roy");
   const isHeadstarter = hosts.includes("Headstarter");
+  const isJoshLocke = hosts.includes("Josh Locke");
   
   if (RSVPMatch) {
     if ((isCorgi || isHeadstarter) && link) {
@@ -141,6 +142,21 @@ function getActionButton(notes: string, hosts: string, link?: string) {
   
   // Handle Corgi special case (even without RSVP in notes)
   if (isCorgi && link) {
+    return (
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <Button className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+          RSVP
+        </Button>
+      </a>
+    );
+  }
+  
+  // Handle Josh Locke special case (even without RSVP in notes)
+  if (isJoshLocke && link) {
     return (
       <a 
         href={link} 
