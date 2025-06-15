@@ -49,6 +49,7 @@ const events = [
     hosts: "Greptile, Mintlify",
     type: "Official",
     notes: "food truck dinner + Tech Roast Show",
+    link: "https://lu.ma/h6nv6i9o",
   },
   {
     date: "Jun 16–17",
@@ -122,6 +123,7 @@ function getActionButton(notes: string, hosts: string, link?: string) {
   const isCluely = hosts.includes("Cluely - Roy");
   const isHeadstarter = hosts.includes("Headstarter");
   const isJoshLocke = hosts.includes("Josh Locke");
+  const isGreptile = hosts.includes("Greptile");
   
   if (RSVPMatch) {
     if ((isCorgi || isHeadstarter) && link) {
@@ -176,6 +178,21 @@ function getActionButton(notes: string, hosts: string, link?: string) {
   
   // Handle Headstarter special case (even without RSVP in notes)
   if (isHeadstarter && link) {
+    return (
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <Button className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+          RSVP
+        </Button>
+      </a>
+    );
+  }
+  
+  // Handle Greptile special case (even without RSVP in notes)
+  if (isGreptile && link) {
     return (
       <a 
         href={link} 
