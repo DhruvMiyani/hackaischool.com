@@ -49,6 +49,14 @@ const events = [
     notes: "Food, swag, interns",
   },
   {
+    date: "Jun 17",
+    name: "Headstarter Event",
+    hosts: "Headstarter",
+    type: "RSVP",
+    notes: "Tech networking",
+    link: "https://lnkd.in/ejTZq2Hm",
+  },
+  {
     date: "Jun 18",
     name: "Stanford Founders Afterparty",
     hosts: "Stanford founders",
@@ -73,6 +81,8 @@ function getTypeBadge(type: string) {
       return <Badge className="bg-cyan-200 text-cyan-900">{type}</Badge>;
     case "Unofficial":
       return <Badge className="bg-gray-300 text-gray-800">{type}</Badge>;
+    case "RSVP":
+      return <Badge className="bg-yellow-200 text-yellow-900">{type}</Badge>;
     default:
       return <Badge variant="outline">{type}</Badge>;
   }
@@ -100,9 +110,10 @@ function getActionButton(notes: string, hosts: string, link?: string) {
   const isCorgi = hosts.includes("Corgi Insurance");
   const isAnthropic = hosts.includes("Anthropic");
   const isCluely = hosts.includes("Cluely - Roy");
+  const isHeadstarter = hosts.includes("Headstarter");
   
   if (RSVPMatch) {
-    if (isCorgi && link) {
+    if ((isCorgi || isHeadstarter) && link) {
       return (
         <a 
           href={link} 
