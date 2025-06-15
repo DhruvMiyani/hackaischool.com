@@ -84,6 +84,8 @@ function getTypeBadge(type: string) {
       return <Badge className="bg-gray-300 text-gray-800">{type}</Badge>;
     case "RSVP":
       return <Badge className="bg-yellow-200 text-yellow-900">{type}</Badge>;
+    case "Small event":
+      return <Badge className="bg-green-100 text-green-800">{type}</Badge>;
     default:
       return <Badge variant="outline">{type}</Badge>;
   }
