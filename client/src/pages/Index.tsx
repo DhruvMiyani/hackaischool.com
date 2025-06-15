@@ -86,6 +86,8 @@ const highlightKeywords = (notes: string) => {
   out = out.replace(/\b(Claude panel)\b/gi, `<span class="italic text-indigo-700">Claude panel</span>`);
   out = out.replace(/\b(Food|swag|interns)\b/gi, `<span class="bg-green-50 text-green-700 px-2 py-1 rounded">$1</span>`);
   out = out.replace(/\b(resume\/project roast)\b/gi, `<span class="bg-cyan-50 text-cyan-700 px-2 py-1 rounded">$1</span>`);
+  out = out.replace(/\b(elite party)\b/gi, `<span class="font-bold text-lg bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent px-1">✨ elite party ✨</span>`);
+  out = out.replace(/\b(interview with Corgi)\b/gi, `<span class="font-semibold text-lg text-emerald-700 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200">🏢 interview with Corgi</span>`);
   return out;
 };
 
