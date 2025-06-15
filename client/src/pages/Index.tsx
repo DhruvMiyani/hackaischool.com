@@ -9,7 +9,7 @@ const events = [
     name: "Cluely Afterparty",
     hosts: "Cluely - Roy",
     type: "Invite‑only",
-    notes: "DM for link",
+    notes: "elite party",
   },
   {
     date: "Jun 16",
