@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
@@ -141,8 +140,19 @@ const Index = () => {
             </TableBody>
           </Table>
         </div>
-        <footer className="pt-6 text-sm text-zinc-500">
-          For the latest links and more info, check event chats or reach out to hosts.
+        <section className="mt-12 rounded-xl bg-white border border-zinc-200 shadow-lg px-8 py-6 flex flex-col gap-3 items-center text-center">
+          <h2 className="text-lg sm:text-xl font-semibold text-sky-900">
+            About / Mission
+          </h2>
+          <p className="text-zinc-700">
+            Built by students & YC alumni. Our mission: empower the next generation of AI builders with community-led resources and real-world opportunities. Sponsored by <span className="font-semibold text-sky-700">hackaischool.com</span>.
+          </p>
+        </section>
+
+        <footer className="pt-6 text-sm text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span>
+            For the latest links and more info, check event chats or reach out to hosts.
+          </span>
         </footer>
       </div>
     </div>
