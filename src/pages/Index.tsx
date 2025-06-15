@@ -1,5 +1,7 @@
+
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 
 const events = [
   {
@@ -53,16 +55,6 @@ const events = [
   },
 ];
 
-const typeColor: Record<string, string> = {
-  "Invite‑only": "secondary",
-  "Exclusive": "accent",
-  "Technical founders": "default",
-  "Unofficial apartment": "outline",
-  "Multi‑startup": "primary",
-  "Hacker‑house": "success",
-  "Unofficial": "muted",
-};
-
 function getTypeBadge(type: string) {
   switch (type) {
     case "Invite‑only":
@@ -85,7 +77,6 @@ function getTypeBadge(type: string) {
 }
 
 const highlightKeywords = (notes: string) => {
-  // Highlight RSVP, DM, No salespeople, Food, etc.
   let out = notes;
   out = out.replace(/\b(DM for link)\b/gi, `<span class="font-medium bg-blue-100 text-blue-900 px-2 py-1 rounded">DM for link</span>`);
   out = out.replace(/\b(RSVP (via [^\s,]+))\b/gi, `<span class="font-medium bg-yellow-50 text-yellow-800 px-2 py-1 rounded">$1</span>`);
@@ -95,6 +86,30 @@ const highlightKeywords = (notes: string) => {
   out = out.replace(/\b(resume\/project roast)\b/gi, `<span class="bg-cyan-50 text-cyan-700 px-2 py-1 rounded">$1</span>`);
   return out;
 };
+
+function getActionButton(notes: string) {
+  const RSVPMatch = notes.match(/\b(RSVP)\b/i);
+  const DMMatch = notes.match(/\b(DM)\b/i);
+  if (RSVPMatch) {
+    return (
+      <Button className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+        RSVP
+      </Button>
+    );
+  }
+  if (DMMatch) {
+    return (
+      <Button className="bg-blue-200 hover:bg-blue-300 text-blue-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+        DM Host
+      </Button>
+    );
+  }
+  return (
+    <Button className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-3 py-1 rounded" size="sm" variant="outline">
+      Details
+    </Button>
+  );
+}
 
 const Index = () => {
   return (
@@ -117,6 +132,7 @@ const Index = () => {
                 <TableHead className="min-w-[180px] text-lg font-semibold text-zinc-700">Host(s)</TableHead>
                 <TableHead className="w-[120px] text-lg font-semibold text-zinc-700">Type</TableHead>
                 <TableHead className="min-w-[200px] text-lg font-semibold text-zinc-700">Notes</TableHead>
+                <TableHead className="w-[130px] text-lg font-semibold text-zinc-700">Apply/RSVP</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -137,6 +153,9 @@ const Index = () => {
                       dangerouslySetInnerHTML={{ __html: highlightKeywords(evt.notes) }}
                     />
                   </TableCell>
+                  <TableCell className="text-center">
+                    {getActionButton(evt.notes)}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -153,3 +172,4 @@ const Index = () => {
 };
 
 export default Index;
+
