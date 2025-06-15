@@ -39,7 +39,7 @@ const events = [
     date: "Jun 16–17",
     name: "Josh Locke Afterparty",
     hosts: "Josh Locke",
-    type: "Technical founders",
+    type: "Small event",
     notes: "Drinks and food",
     link: "https://lu.ma/rhxka1cs",
   },
