@@ -101,7 +101,9 @@ const Index = () => {
     <div className="w-full min-h-screen bg-gradient-to-tr from-zinc-50 via-white to-blue-50 py-12 px-6 flex flex-col items-center">
       <div className="max-w-5xl w-full space-y-8">
         <header className="mb-4">
-          <h1 className="text-4xl font-bold text-neutral-900 tracking-tight">Events Schedule</h1>
+          <h1 className="text-4xl font-bold text-neutral-900 tracking-tight">
+            YC AI School after party Events
+          </h1>
           <p className="mt-2 text-lg text-gray-700">
             Upcoming afterparties, hacker houses, and unofficial events at a glance.
           </p>
