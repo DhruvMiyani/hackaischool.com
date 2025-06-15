@@ -24,7 +24,7 @@ const events = [
     name: "Corgi Hacker‑House",
     hosts: "Corgi Insurance (YC S24)",
     type: "Hacker‑house",
-    notes: "RSVP via Partiful, resume/project roast",
+    notes: "interview with Corgi",
     link: "https://partiful.com/e/P3J3LJmJeAa96wmffgVA",
   },
   {
