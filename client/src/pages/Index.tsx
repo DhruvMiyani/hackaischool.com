@@ -142,6 +142,21 @@ function getActionButton(notes: string, hosts: string, link?: string) {
     );
   }
   
+  // Handle Cluely special case (even without DM in notes)
+  if (isCluely) {
+    return (
+      <a 
+        href="https://www.linkedin.com/in/roy-lee-goat/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <Button className="bg-blue-200 hover:bg-blue-300 text-blue-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+          DM Host
+        </Button>
+      </a>
+    );
+  }
+  
   // Handle Anthropic special case
   if (isAnthropic && link) {
     return (
