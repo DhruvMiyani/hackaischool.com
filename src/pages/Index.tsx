@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
@@ -116,6 +115,17 @@ const Index = () => {
   return (
     <div className="w-full min-h-screen bg-gradient-to-tr from-zinc-50 via-white to-blue-50 py-12 px-6 flex flex-col items-center">
       <div className="max-w-5xl w-full space-y-8">
+        {/* HERO HEADER SECTION */}
+        <section className="flex flex-col items-center gap-2 mb-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-900 tracking-tight text-center">
+            now can y hackaischool.com
+          </h1>
+          <span className="mt-2 text-lg md:text-xl font-medium text-cyan-900 text-center tracking-wide">
+            AI Hackathon - events resource page
+          </span>
+        </section>
+
+        {/* Existing event table/card */}
         <header className="mb-4">
           <h1 className="text-4xl font-bold text-neutral-900 tracking-tight">
             YC AI School after party Events
@@ -175,4 +185,3 @@ const Index = () => {
 };
 
 export default Index;
-
