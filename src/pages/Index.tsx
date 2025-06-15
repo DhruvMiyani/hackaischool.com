@@ -2,6 +2,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const events = [
   {
@@ -124,42 +125,44 @@ const Index = () => {
           </p>
         </header>
         <div className="bg-white shadow-xl rounded-xl overflow-hidden border border-zinc-200">
-          <Table>
-            <TableHeader className="bg-gradient-to-r from-blue-100/50 via-indigo-50 to-cyan-50">
-              <TableRow>
-                <TableHead className="w-[120px] text-lg font-semibold text-zinc-700">Date</TableHead>
-                <TableHead className="min-w-[220px] text-lg font-semibold text-zinc-700">Event Name</TableHead>
-                <TableHead className="min-w-[180px] text-lg font-semibold text-zinc-700">Host(s)</TableHead>
-                <TableHead className="w-[120px] text-lg font-semibold text-zinc-700">Type</TableHead>
-                <TableHead className="min-w-[200px] text-lg font-semibold text-zinc-700">Notes</TableHead>
-                <TableHead className="w-[130px] text-lg font-semibold text-zinc-700">Apply/RSVP</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {events.map((evt, i) => (
-                <TableRow
-                  key={evt.name}
-                  className={`transition hover:bg-blue-50 ${
-                    i % 2 === 0 ? "bg-zinc-50" : "bg-white"
-                  }`}
-                >
-                  <TableCell className="text-base font-semibold text-sky-900">{evt.date}</TableCell>
-                  <TableCell className="font-medium">{evt.name}</TableCell>
-                  <TableCell className="text-zinc-700">{evt.hosts}</TableCell>
-                  <TableCell>{getTypeBadge(evt.type)}</TableCell>
-                  <TableCell>
-                    <span
-                      className="text-slate-700"
-                      dangerouslySetInnerHTML={{ __html: highlightKeywords(evt.notes) }}
-                    />
-                  </TableCell>
-                  <TableCell className="text-center">
-                    {getActionButton(evt.notes)}
-                  </TableCell>
+          <ScrollArea className="w-full max-h-[520px]">
+            <Table>
+              <TableHeader className="bg-gradient-to-r from-blue-100/50 via-indigo-50 to-cyan-50">
+                <TableRow>
+                  <TableHead className="w-[120px] text-lg font-semibold text-zinc-700">Date</TableHead>
+                  <TableHead className="min-w-[220px] text-lg font-semibold text-zinc-700">Event Name</TableHead>
+                  <TableHead className="min-w-[180px] text-lg font-semibold text-zinc-700">Host(s)</TableHead>
+                  <TableHead className="w-[120px] text-lg font-semibold text-zinc-700">Type</TableHead>
+                  <TableHead className="min-w-[200px] text-lg font-semibold text-zinc-700">Notes</TableHead>
+                  <TableHead className="w-[130px] text-lg font-semibold text-zinc-700">Apply/RSVP</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {events.map((evt, i) => (
+                  <TableRow
+                    key={evt.name}
+                    className={`transition hover:bg-blue-50 ${
+                      i % 2 === 0 ? "bg-zinc-50" : "bg-white"
+                    }`}
+                  >
+                    <TableCell className="text-base font-semibold text-sky-900">{evt.date}</TableCell>
+                    <TableCell className="font-medium">{evt.name}</TableCell>
+                    <TableCell className="text-zinc-700">{evt.hosts}</TableCell>
+                    <TableCell>{getTypeBadge(evt.type)}</TableCell>
+                    <TableCell>
+                      <span
+                        className="text-slate-700"
+                        dangerouslySetInnerHTML={{ __html: highlightKeywords(evt.notes) }}
+                      />
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {getActionButton(evt.notes)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </ScrollArea>
         </div>
         <footer className="pt-6 text-sm text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>
