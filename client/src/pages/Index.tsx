@@ -48,7 +48,7 @@ const events = [
     name: "Greptile + Mintlify's YC AI SUS Official Afterparty ft. Tech Roast Show",
     hosts: "Greptile, Mintlify",
     type: "Official",
-    notes: "Tech Roast Show",
+    notes: "food truck dinner + Tech Roast Show",
   },
   {
     date: "Jun 16–17",
@@ -101,6 +101,7 @@ const highlightKeywords = (notes: string) => {
   out = out.replace(/\b(Claude panel)\b/gi, `<span class="italic text-indigo-700">Claude panel</span>`);
   out = out.replace(/\b(boba)\b/gi, `<span class="font-medium text-lg text-pink-600 bg-pink-50 px-2 py-1 rounded-lg border border-pink-200">🧋 boba</span>`);
   out = out.replace(/\b(Drinks and food)\b/gi, `<span class="font-medium text-lg text-orange-600 bg-orange-50 px-2 py-1 rounded-lg border border-orange-200">🍷🍕 Drinks and food</span>`);
+  out = out.replace(/\b(food truck dinner)\b/gi, `<span class="font-medium text-lg text-yellow-700 bg-yellow-50 px-2 py-1 rounded-lg border border-yellow-200">🚚🍽️ food truck dinner</span>`);
   out = out.replace(/\b(Tech Roast Show)\b/gi, `<span class="font-bold text-lg text-red-600 bg-red-50 px-2 py-1 rounded-lg border border-red-200">🎤🔥 Tech Roast Show</span>`);
   out = out.replace(/\b(Food|swag|interns)\b/gi, `<span class="bg-green-50 text-green-700 px-2 py-1 rounded">$1</span>`);
   out = out.replace(/\b(resume\/project roast)\b/gi, `<span class="bg-cyan-50 text-cyan-700 px-2 py-1 rounded">$1</span>`);
