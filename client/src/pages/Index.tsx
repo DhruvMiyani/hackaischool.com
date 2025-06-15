@@ -45,10 +45,10 @@ const events = [
   },
   {
     date: "Jun 16–17",
-    name: "Party #19 of 21 (Duck9 / Luma)",
-    hosts: "Larry Chiang, Duck9",
-    type: "Unofficial apartment",
-    notes: "RSVP via Luma",
+    name: "Greptile + Mintlify's YC AI SUS Official Afterparty ft. Tech Roast Show",
+    hosts: "Greptile, Mintlify",
+    type: "Official",
+    notes: "Tech Roast Show",
   },
   {
     date: "Jun 16–17",
@@ -86,6 +86,8 @@ function getTypeBadge(type: string) {
       return <Badge className="bg-yellow-200 text-yellow-900">{type}</Badge>;
     case "Small event":
       return <Badge className="bg-green-100 text-green-800">{type}</Badge>;
+    case "Official":
+      return <Badge className="bg-purple-100 text-purple-800">{type}</Badge>;
     default:
       return <Badge variant="outline">{type}</Badge>;
   }
@@ -99,6 +101,7 @@ const highlightKeywords = (notes: string) => {
   out = out.replace(/\b(Claude panel)\b/gi, `<span class="italic text-indigo-700">Claude panel</span>`);
   out = out.replace(/\b(boba)\b/gi, `<span class="font-medium text-lg text-pink-600 bg-pink-50 px-2 py-1 rounded-lg border border-pink-200">🧋 boba</span>`);
   out = out.replace(/\b(Drinks and food)\b/gi, `<span class="font-medium text-lg text-orange-600 bg-orange-50 px-2 py-1 rounded-lg border border-orange-200">🍷🍕 Drinks and food</span>`);
+  out = out.replace(/\b(Tech Roast Show)\b/gi, `<span class="font-bold text-lg text-red-600 bg-red-50 px-2 py-1 rounded-lg border border-red-200">🎤🔥 Tech Roast Show</span>`);
   out = out.replace(/\b(Food|swag|interns)\b/gi, `<span class="bg-green-50 text-green-700 px-2 py-1 rounded">$1</span>`);
   out = out.replace(/\b(resume\/project roast)\b/gi, `<span class="bg-cyan-50 text-cyan-700 px-2 py-1 rounded">$1</span>`);
   out = out.replace(/\b(elite party)\b/gi, `<span class="font-bold text-lg bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent px-1">✨ elite party ✨</span>`);
