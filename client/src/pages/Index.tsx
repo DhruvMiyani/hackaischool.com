@@ -94,6 +94,7 @@ const highlightKeywords = (notes: string) => {
   out = out.replace(/\b(RSVP (via [^\s,]+))\b/gi, `<span class="font-medium bg-yellow-50 text-yellow-800 px-2 py-1 rounded">$1</span>`);
   out = out.replace(/\b(No salespeople)\b/gi, `<span class="font-semibold bg-gray-100 text-gray-700 px-2 py-1 rounded">No salespeople</span>`);
   out = out.replace(/\b(Claude panel)\b/gi, `<span class="italic text-indigo-700">Claude panel</span>`);
+  out = out.replace(/\b(boba)\b/gi, `<span class="font-medium text-lg text-pink-600 bg-pink-50 px-2 py-1 rounded-lg border border-pink-200">🧋 boba</span>`);
   out = out.replace(/\b(Food|swag|interns)\b/gi, `<span class="bg-green-50 text-green-700 px-2 py-1 rounded">$1</span>`);
   out = out.replace(/\b(resume\/project roast)\b/gi, `<span class="bg-cyan-50 text-cyan-700 px-2 py-1 rounded">$1</span>`);
   out = out.replace(/\b(elite party)\b/gi, `<span class="font-bold text-lg bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent px-1">✨ elite party ✨</span>`);
