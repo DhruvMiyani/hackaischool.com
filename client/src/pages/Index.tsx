@@ -20,6 +20,14 @@ const events = [
   },
   {
     date: "Jun 16–17",
+    name: "Corgi Hacker‑House",
+    hosts: "Corgi Insurance (YC S24)",
+    type: "Hacker‑house",
+    notes: "RSVP via Partiful, resume/project roast",
+    link: "https://partiful.com/e/P3J3LJmJeAa96wmffgVA",
+  },
+  {
+    date: "Jun 16–17",
     name: "Josh Locke Afterparty",
     hosts: "Josh Locke",
     type: "Technical founders",
@@ -38,13 +46,6 @@ const events = [
     hosts: "Comulate, Perplexity, Wispr, Warp, Conversion",
     type: "Multi‑startup",
     notes: "Food, swag, interns",
-  },
-  {
-    date: "Jun 17",
-    name: "Corgi Hacker‑House",
-    hosts: "Corgi Insurance (YC S24)",
-    type: "Hacker‑house",
-    notes: "RSVP via Partiful, resume/project roast",
   },
   {
     date: "Jun 18",
@@ -87,10 +88,24 @@ const highlightKeywords = (notes: string) => {
   return out;
 };
 
-function getActionButton(notes: string, hosts: string) {
+function getActionButton(notes: string, hosts: string, link?: string) {
   const RSVPMatch = notes.match(/\b(RSVP)\b/i);
   const DMMatch = notes.match(/\b(DM)\b/i);
   if (RSVPMatch) {
+    const isCorgi = hosts.includes("Corgi Insurance");
+    if (isCorgi && link) {
+      return (
+        <a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <Button className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
+            RSVP
+          </Button>
+        </a>
+      );
+    }
     return (
       <Button className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold px-3 py-1 rounded" size="sm" variant="secondary">
         RSVP
@@ -180,7 +195,7 @@ const Index = () => {
                       />
                     </TableCell>
                     <TableCell className="text-center">
-                      {getActionButton(evt.notes, evt.hosts)}
+                      {getActionButton(evt.notes, evt.hosts, evt.link)}
                     </TableCell>
                   </TableRow>
                 ))}
