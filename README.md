@@ -1,4 +1,6 @@
 
 https://www.hackaischool.com/
 
-![Screenshot 2025-06-15 at 10 34 43 PM](https://github.com/user-attachments/assets/36bee025-88ad-4a7d-b493-1f4f4eb4b292)
+AI Powered Search for YC Events 
+
+<img width="1412" alt="Screenshot 2025-06-16 at 5 08 45 PM" src="https://github.com/user-attachments/assets/9d486c64-22f7-4bbf-a060-2de9961ca859" />
